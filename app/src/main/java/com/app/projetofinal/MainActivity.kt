@@ -26,7 +26,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        makeReq()
+        //makeReq()
 
         val checkIfFirstTime = intent.getBooleanExtra("FIRSTTIME", true)
         val checkIfFirstTime2 = intent.getBooleanExtra("SECONDTIME", false)
