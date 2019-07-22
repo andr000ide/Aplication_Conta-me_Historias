@@ -146,7 +146,7 @@ class FragmentOne : androidx.fragment.app.Fragment() {
                 override fun onResponse(call: Call<Example>, response: Response<Example>) {
                     val examples = response.body()
                     if (response.message().equals("INTERNAL SERVER ERROR")) {
-                        withButtonCentered(view)
+                        withButtonCenteredErrorNoResults(view)
                         //Toast.makeText(activity,"Erro, tente com outro input",Toast.LENGTH_LONG);
                         //activity!!.onBackPressed()
                     }
