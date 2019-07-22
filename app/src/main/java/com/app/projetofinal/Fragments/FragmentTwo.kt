@@ -9,9 +9,12 @@ import android.view.*
 import android.view.inputmethod.InputMethodManager
 import android.widget.Button
 import com.app.projetofinal.CustomDropDownAdapter
-import com.app.projetofinal.R
 import com.app.projetofinal.SecondActivity
 import kotlinx.android.synthetic.main.pesquisar.view.*
+import android.net.ConnectivityManager
+import android.net.NetworkInfo
+import androidx.core.content.ContextCompat.getSystemService
+import com.app.projetofinal.R
 
 
 class FragmentTwo : androidx.fragment.app.Fragment() {
@@ -71,24 +74,50 @@ class FragmentTwo : androidx.fragment.app.Fragment() {
         }
 
         view.imagePesquisa.setOnClickListener {
-            var aux = view.searchbar.text.toString()
 
-            val result = aux.trim()
 
-            var aux3 = view.spinner1.selectedItemPosition
-            //var aux2 = listItemsTxt.get(view.spinner1.selectedItemPosition)
-            view.imagePesquisa.hideKeyboard()
+            val manager = activity?.applicationContext?.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+            val activeNetwork = manager.activeNetworkInfo
+            if (null != activeNetwork) {
+                if (activeNetwork.type == ConnectivityManager.TYPE_WIFI) {
+                    var aux = view.searchbar.text.toString()
 
-            if(result.isNotEmpty()){
-                val kotlinFragment = FragmentOne.newInstance(result,aux3)
+                    val result = aux.trim()
 
-                (activity as SecondActivity).replaceFragment(kotlinFragment)
+                    var aux3 = view.spinner1.selectedItemPosition
+                    //var aux2 = listItemsTxt.get(view.spinner1.selectedItemPosition)
+                    view.imagePesquisa.hideKeyboard()
+
+                    if(result.isNotEmpty()){
+                        val kotlinFragment = FragmentOne.newInstance(result,aux3)
+
+                        (activity as SecondActivity).replaceFragment(kotlinFragment)
+                    }
+                    else{
+                        buttonerrorempty(view)
+                    }
+                }
+                if (activeNetwork.type == ConnectivityManager.TYPE_MOBILE) {
+                    var aux = view.searchbar.text.toString()
+
+                    val result = aux.trim()
+
+                    var aux3 = view.spinner1.selectedItemPosition
+                    //var aux2 = listItemsTxt.get(view.spinner1.selectedItemPosition)
+                    view.imagePesquisa.hideKeyboard()
+
+                    if(result.isNotEmpty()){
+                        val kotlinFragment = FragmentOne.newInstance(result,aux3)
+
+                        (activity as SecondActivity).replaceFragment(kotlinFragment)
+                    }
+                    else{
+                        buttonerrorempty(view)
+                    }
+                }
+            } else {
+                buttonnointernet(view)
             }
-            else{
-                buttonerrorempty(view)
-            }
-
-
         }
         return view
     }
@@ -105,6 +134,22 @@ class FragmentTwo : androidx.fragment.app.Fragment() {
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
         dialog.setCancelable(false)
         dialog.setContentView(R.layout.layout_mensagem_pesquisar_vazio)
+        dialog.window.setBackgroundDrawableResource(android.R.color.transparent)
+
+        val button = dialog.findViewById(R.id.buttonOk) as Button
+
+        button.setOnClickListener {
+            dialog.dismiss()
+        }
+        dialog.show()
+    }
+
+    fun buttonnointernet(view: View) {
+
+        val dialog = Dialog(activity)
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
+        dialog.setCancelable(false)
+        dialog.setContentView(R.layout.layout_error_no_internet)
         dialog.window.setBackgroundDrawableResource(android.R.color.transparent)
 
         val button = dialog.findViewById(R.id.buttonOk) as Button

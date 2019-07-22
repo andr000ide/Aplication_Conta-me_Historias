@@ -9,6 +9,7 @@ class ViewPagerAdapterNarrativas(manager: androidx.fragment.app.FragmentManager)
         return fragmentList[position]
     }
 
+
     override fun getCount(): Int {
         return fragmentList.size
     }

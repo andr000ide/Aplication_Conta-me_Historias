@@ -158,4 +158,9 @@
     <string name="novembro">November</string>
     <string name="dezembro">December</string>
     <string name="infor">Data sources:</string>
+    <string name="politica_privacidade">Policy Privacy</string>
+    <string name="politica_privacidade_texto"><a>Conta-me Histórias is a temporal summarization tool that allows users to get a temporal perspective of a given topic. All the data used in the application is obtained from </a>&lt;a href="http://www.arquivo.pt">Arquivo.pt&lt;/a><a>, an archive of the Portuguese web pages published since 1996. This application does not require any type of subscription or registration. Information concerning the queries issued by the users or their browsing activity is not stored in any central repository or in the application itself.</a></string>
+    <string name="no_internet1">No Internet</string>
+    <string name="no_internet2">Please connect to internet a try again</string>
+
 </resources>

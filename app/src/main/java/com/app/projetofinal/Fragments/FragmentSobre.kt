@@ -43,6 +43,9 @@ class FragmentSobre : androidx.fragment.app.Fragment(){
         topicoArr.add(sobreTopico(titulo = getString(R.string.sobreReferencias), texto = getString(R.string.sobreReferenciasT01) +"\n"+
                 getString(R.string.sobreReferenciasT02) + "\n" +
                 getString(R.string.sobreReferenciasT03), url = ""))
+
+
+        topicoArr.add(sobreTopico(titulo = getString(R.string.politica_privacidade), texto = getString(R.string.politica_privacidade_texto), url = ""))
         // Creates a vertical Layout Manager
 
 

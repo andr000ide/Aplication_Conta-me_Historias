@@ -78,7 +78,7 @@ class FragmentOne : androidx.fragment.app.Fragment() {
                 override fun onResponse(call: Call<Example>, response: Response<Example>) {
                     val examples = response.body()
                     if (response.message().equals("INTERNAL SERVER ERROR")) {
-                        withButtonCentered(view)
+                        withButtonCenteredErrorNoResults(view)
                         //Toast.makeText(activity,"Erro, tente com outro input",Toast.LENGTH_LONG);
                         //activity!!.onBackPressed()
                     }
@@ -119,6 +119,7 @@ class FragmentOne : androidx.fragment.app.Fragment() {
                             adapter.addFragment(fragmento2, getString(R.string.termos_relacionas))
                             view.viewpager.adapter = adapter
                             view.tabs.setupWithViewPager(view.viewpager)
+                            view.viewpager.offscreenPageLimit=2
 
                             view.linear_vis.visibility = View.VISIBLE
                             view.spin_kit.visibility = View.INVISIBLE

@@ -194,5 +194,12 @@
     <string name="novembro">Novembro</string>
     <string name="dezembro">Dezembro</string>
     <string name="infor">Fontes de informação:</string>
+    <string name="politica_privacidade">Política de Privacidade</string>
+    <string name="politica_privacidade_texto"><a>Conta-me Histórias é uma ferramenta de sumarização temporal que permite aos utilizadores obter uma perspectiva temporal de um determinado tópico. Todos os dados utilizados na aplicação são obtidos a partir do</a> &lt;a href="http://www.arquivo.pt">Arquivo.pt&lt;/a><a>, um arquivo das páginas web portuguesas publicadas desde 1996. Esta aplicação não requer qualquer tipo de subscrição ou registo. As informações referentes às consultas emitidas pelos utilizadores ou à sua atividade de navegação não são armazenadas em nenhum repositório central ou no próprio aplicativo.</a></string>
+    <string name="no_internet1">Sem Internet</string>
+    <string name="no_internet2">Por favor ligue-se à internet e tente novamente</string>
+    <string name="ajuda_narrativa" translatable="false">Para navegar entre os diferentes períodos temporais deslize a narrativa abaixo para a esquerda</string>
+    <string name="ajuda_narrativa_en" translatable="false">Please swipe left the below narrative if you want to navigate between the different time periods</string>
+
 </resources>
 

@@ -12,6 +12,7 @@ import com.app.projetofinal.modelclass.Example_Yake
 import com.app.projetofinal.modelclass.Wordcloud
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
+import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.fragment_layout_wordcloud.view.*
 import retrofit2.Call
 import retrofit2.Callback
@@ -43,10 +44,12 @@ class FragmentTeste2 : androidx.fragment.app.Fragment() {
         langHelper = LangHelper(activity!!.applicationContext)
 
         if(langHelper.getLanguageSaved().equals("en")){
-            view.wordCloud.setImageResource(R.drawable.contamehistorias_loading)
+            Picasso.get().load(R.drawable.contamehistorias_loading_2).into(view.wordCloud)
+            //view.wordCloud.setImageResource(R.drawable.contamehistorias_loading)
         }
         else{
-            view.wordCloud.setImageResource(R.drawable.contamehistorias_carregar)
+            Picasso.get().load(R.drawable.contamehistorias_carregar_2).into(view.wordCloud)
+            //view.wordCloud.setImageResource(R.drawable.contamehistorias_carregar)
         }
 
 

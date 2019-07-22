@@ -5,17 +5,20 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.app.projetofinal.R
+import android.widget.Toast
 import com.app.projetofinal.Timeline
 import com.app.projetofinal.ViewPagerAdapterNarrativas
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import kotlinx.android.synthetic.main.frag_teste1.*
 import kotlinx.android.synthetic.main.frag_teste1.view.*
+import android.view.Gravity
+import com.app.projetofinal.LangHelper
+import com.app.projetofinal.R
 
 
 class FragmentTeste1 : androidx.fragment.app.Fragment(){
-
+    private lateinit var langHelper: LangHelper
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -32,7 +35,30 @@ class FragmentTeste1 : androidx.fragment.app.Fragment(){
         val turnsType = object : TypeToken<List<Timeline>>() {}.type
         var testModel = gson.fromJson<List<Timeline>>(jsonarray, turnsType)
 
+        langHelper = LangHelper(activity!!.applicationContext)
 
+
+        view.step_view.setOnClickListener {
+            if(langHelper.getLanguageSaved().equals("en")){
+                val toast = Toast.makeText(
+                    activity?.applicationContext,
+                    R.string.ajuda_narrativa_en, Toast.LENGTH_LONG
+                )
+                toast.setGravity(Gravity.TOP or Gravity.CENTER_VERTICAL, 0, 70)
+                toast.show()
+            }
+            else{
+                val toast = Toast.makeText(
+                    activity?.applicationContext,
+                    R.string.ajuda_narrativa, Toast.LENGTH_LONG
+                )
+                toast.setGravity(Gravity.TOP or Gravity.CENTER_VERTICAL, 0, 70)
+                toast.show()
+            }
+
+
+            //Toast.makeText(context,getString(R.string.ajuda_narrativa),Toast.LENGTH_LONG).show()
+        }
 
         val adapter = ViewPagerAdapterNarrativas(childFragmentManager)
 
@@ -50,6 +76,7 @@ class FragmentTeste1 : androidx.fragment.app.Fragment(){
         //val a = listOf<String>("03/17","23/18","05/19","06/19","06/19")
         view.step_view.setSteps(emptyList)
         view.step_view.selectedStep(0)
+
 
         view.viewpagernarr.addOnPageChangeListener(object : androidx.viewpager.widget.ViewPager.OnPageChangeListener {
             override fun onPageScrollStateChanged(state: Int) {
