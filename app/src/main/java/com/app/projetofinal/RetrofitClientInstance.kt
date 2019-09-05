@@ -21,7 +21,7 @@ object RetrofitClientInstance {
             if(retrofit==null){
                 retrofit = retrofit2.Retrofit.Builder()
                     //.baseUrl("https://conta-https.herokuapp.com/")
-                    .baseUrl("http://contamehistorias.inesctec.pt/arquivopt/api/v1/")
+                    .baseUrl("https://tm-websuiteapps.ipt.pt/contamehistorias/arquivopt/api/v1.0/")
                     .client(okHttpClient)
                     .addConverterFactory(MoshiConverterFactory.create())
                     .build()

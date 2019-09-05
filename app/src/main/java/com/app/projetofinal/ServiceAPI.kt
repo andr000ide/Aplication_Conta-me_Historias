@@ -23,7 +23,7 @@ interface ServiceAPI {
     @POST("extract_keywords?")
     fun search_words(@Field("content") content : String, @Query("max_ngram_size") max_ngram_size : String, @Query("number_of_keywords") number_of_keywords : String) : Call<Example_Yake>
 
-    @GET("?")
+    @GET("base64?")
     fun search_cloud(@Query("width") width : String,@Query("height") height : String,@Query("json") json : String) : Call<Wordcloud>
 
     @GET("bins/{algo2}")

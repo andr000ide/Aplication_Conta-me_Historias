@@ -21,7 +21,7 @@ object RetrofitWordCloudInstance {
         get() {
             if (retrofit == null) {
                 retrofit = retrofit2.Retrofit.Builder()
-                    .baseUrl("https://yake-wordcloud.herokuapp.com/")
+                    .baseUrl("https://tm-websuiteapps.ipt.pt/wordCloudCMH/api/v1.0/")
                     .client(okHttpClient)
                     .addConverterFactory(MoshiConverterFactory.create())
                     .build()
