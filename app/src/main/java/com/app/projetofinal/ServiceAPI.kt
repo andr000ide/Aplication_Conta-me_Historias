@@ -20,7 +20,7 @@ interface ServiceAPI {
     fun custom_search(@Query(encoded = true, value="query")query : String, @Query(encoded = true, value="last_years") last_years : String) : Call<Example>
 
     @FormUrlEncoded
-    @POST("extract_keywords?")
+    @POST("extract_keywords_apidocs?")
     fun search_words(@Field("content") content : String, @Query("max_ngram_size") max_ngram_size : String, @Query("number_of_keywords") number_of_keywords : String) : Call<Example_Yake>
 
     @GET("base64?")

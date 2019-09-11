@@ -11,7 +11,7 @@ object RetrofitClientInstance_Keywords {
         get() {
             if (retrofit == null) {
                 retrofit = retrofit2.Retrofit.Builder()
-                    .baseUrl("http://yake.inesctec.pt/yake/v2/")
+                    .baseUrl("https://tm-websuiteapps.ipt.pt/yake/api/v2.0/")
                     .addConverterFactory(MoshiConverterFactory.create())
                     .build()
             }

@@ -82,15 +82,16 @@ class FragmentOne : androidx.fragment.app.Fragment() {
                         //Toast.makeText(activity,"Erro, tente com outro input",Toast.LENGTH_LONG);
                         //activity!!.onBackPressed()
                     }
-                    if (examples == null) {
+
+                    else if(response.body()?.message.equals("A sua consulta não retornou resultados suficientes para construir uma narrativa.")){
                         view.linear_vis.visibility = View.VISIBLE
                         view.spin_kit.visibility = View.INVISIBLE
                         // faz com que o utilizador volte a conseguir carregar depois de fazer o load
                         activity!!.getWindow().clearFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
                         view.view_grayscreen.visibility = View.GONE
-                        // por popup e mandar para o fragmento two
+                        withButtonCenteredErrorNoSuficientResults(view)
                     }
-                    if (examples?.result?.timeline?.size == 0) {
+                    else if (response.body()?.message.equals("Arquivo.pt não encontrou resultados para a pesquisa especificada.")){
                         view.linear_vis.visibility = View.VISIBLE
                         view.spin_kit.visibility = View.INVISIBLE
                         // faz com que o utilizador volte a conseguir carregar depois de fazer o load
@@ -98,7 +99,8 @@ class FragmentOne : androidx.fragment.app.Fragment() {
                         view.view_grayscreen.visibility = View.GONE
                         withButtonCenteredErrorNoResults(view)
                     }
-                    if (examples?.result?.timeline?.size != 0) {
+
+                    else if (response.body()?.message.equals("Sucesso")) {
 
                         examples?.let {
 
@@ -256,6 +258,23 @@ class FragmentOne : androidx.fragment.app.Fragment() {
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
         dialog.setCancelable(false)
         dialog.setContentView(R.layout.layout_mensagem_error_procurar_outro_tema)
+        dialog.window.setBackgroundDrawableResource(android.R.color.transparent)
+
+        val button = dialog.findViewById(R.id.buttonOk) as Button
+
+        button.setOnClickListener {
+            dialog.dismiss()
+            activity!!.onBackPressed()
+        }
+        dialog.show()
+    }
+
+    fun withButtonCenteredErrorNoSuficientResults(view: View) {
+
+        val dialog = Dialog(activity)
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
+        dialog.setCancelable(false)
+        dialog.setContentView(R.layout.layout_mensagem_error_insuficientes_resultados)
         dialog.window.setBackgroundDrawableResource(android.R.color.transparent)
 
         val button = dialog.findViewById(R.id.buttonOk) as Button

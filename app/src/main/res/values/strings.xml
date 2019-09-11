@@ -177,7 +177,8 @@
     <string name="media_en_titulo3" translatable="false"> &lt;a href="http://bip.inesctec.pt/en/195/destaque.html" > News platform awarded with EUR 10 000 has Portuguese know-how &lt;/a></string>
     <string name="media_en_titulo4" translatable="false"> &lt;a href="https://www.inesctec.pt/en/news/news-platform-with-inesc-tecs-know-how-rewarded-with-eur-10m?platform=hootsuite#intro" > News platform with INESC TEC\'s know-how rewarded with EUR 10M &lt;/a></string>
     <string name="key_media_title">Áudio</string>
-    <string name="error_text_no_results">Não foram encontrados resultados suficientes</string>
+    <string name="error_text_no_results">Não foram encontrados resultados para a pesquisa especificada</string>
+    <string name="error_text_no_suficient_results">Não foram encontrados resultados suficientes para construir uma narrativa</string>
     <string name="error_text_procurar_outro_tema">Pesquise por um outro tópico à sua escolha</string>
     <string name="error_text_empty">Pesquisa está vazia</string>
     <string name="error_text_procurar_outro_tema2">Pesquise por um tópico à sua escolha</string>
